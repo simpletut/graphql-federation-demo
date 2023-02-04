@@ -1,0 +1,26 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -k npm:dev:*",
+    "dev:users": "nodemon -r esm ./services/users/index.js",
+    "dev:posts": "nodemon -r esm ./services/posts/index.js",
+    "dev:comments": "nodemon -r esm ./services/comments/index.js",
+    "dev:gateway": "wait-on tcp:4001 tcp:4002 tcp:4003 && nodemon -r esm ./gateway.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/federation": "^0.13.2",
+    "@apollo/gateway": "^0.13.2",
+    "apollo-server": "^2.14.2",
+    "concurrently": "^5.1.0",
+    "esm": "^3.2.25",
+    "graphql": "^15.0.0",
+    "nodemon": "^2.0.2",
+    "wait-on": "^4.0.1"
+  }
+}
